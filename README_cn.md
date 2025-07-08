@@ -5,25 +5,10 @@
 This section contains documentation for the project. Let's take a look at some of the key points:
 
 1. **功能描述**  
-   项目的功能包括但不限于：
-   - 用户注册和登录
-   - 发布文章和评论
-   - 查看其他用户的文章
-   - 管理个人资料
+面对电力系统检测行业人力资源短缺等问题，设计了一款智能巡检与物资运送机器人系统。系统搭载多线激光雷达、深度相机及超声波、红外、陀螺仪等多种传感器，采用自主设计的机械结构与基于RTOS自主开发的STM32f103c8t6运动控制底盘，并通过RDK X5开发板运行ROS 2操作系统，主要可实现以下功能：一、通过运行SLAM建图导航与YoLov11深度学习，可实现机器人室内室外巡逻检查与对于电力系统的故障检测，系统采用的超声波模块可有效弥补激光雷达的近场感知盲区。二、本系统搭载语音识别功能，可通过语音操纵机器人进行室外定点货运巡逻检测，也可在室内进行固定轨迹路线巡检。三、本系统具有远程监控与调度功能，上位机可显示所需巡检电力系统的故障检测结果、小车位置、摄像头画面等内容，同时也具有控制小车和发布任务能力。四、本设计创新性的引入了大语言模型引擎，当所需巡检电力系统设备存在异常时，可进行因果推理与解决建议推送，帮助工程师解决问题，同时进行自动生成检测报告，同步至远程监控平台。
 
 2. **技术要求**  
    为了正常运行项目，您需要具备以下技术要求：
    - 熟练掌握Python编程语言
-   - 了解Django框架
-   - 熟悉前端开发技术，如HTML、CSS和JavaScript
-
 3. **安装指南**  
-   要在本地运行项目，您可以按照以下步骤进行安装：
-   ```
-   $ git clone https://github.com/project.git
-   $ cd project
-   $ python manage.py runserver
-   ```
-   访问 `http://localhost:8000` 即可查看项目运行情况。
-
-Feel free to explore the rest of the documentation for more detailed information.
+   此处仅提供关键代码，ros2中的部分功能包和src文件，以及关键的c和python文件

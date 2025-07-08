@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot name="RoboMaster">
+  <!-- 
+    TF 树结构：
+      odom (由里程计节点动态发布)
+      └── base_footprint (机器人底盘接地坐标系，作为 URDF 的根)
+          └── base_link (机器人主体)
+              └── laser_link (激光雷达)
+  -->
+
+  <!-- 根坐标系：base_footprint -->
+  <link name="base_footprint" />
+
+  <!-- 机器人主体：base_link -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.12" radius="0.10"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0.1 0.1 1.0 0.5"/>
+      </material>
+    </visual>
+  </link>
+  
+  <!-- base_footprint 到 base_link 的静态变换 -->
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <!-- 调整高度偏移 -->
+    <origin xyz="0.0 0.0 0.076" rpy="0 0 0"/>
+  </joint>
+
+  <!-- 激光雷达：laser_link -->
+  <link name="laser_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.02"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 0.5"/>
+      </material>
+    </visual>
+  </link>
+  
+  <!-- base_link 到 laser_link 的静态变换 -->
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser_link"/>
+    <!-- 调整雷达安装高度 -->
+    <origin xyz="0.0 0.0 0.075" rpy="0 0 0"/>
+  </joint>
+
+</robot>
+
+
+
+
